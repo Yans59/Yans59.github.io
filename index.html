@@ -6,8 +6,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;       /* 整体居中 */
-      margin-top: 100px;        /* 页面顶部留白 */
+      text-align: center;       
+      margin-top: 100px;        
       background-color: #f0f0f0;
     }
     h1 {
@@ -20,39 +20,43 @@
     }
     .links {
       display: flex;
-      justify-content: center;  /* 水平居中 */
-      gap: 20px;                /* 链接间距 */
-      flex-wrap: wrap;          /* 小屏幕自动换行 */
+      justify-content: center;  
+      gap: 20px;                
+      flex-wrap: wrap;          
+      margin-bottom: 20px;
     }
-    .links a {
+    .links a, .links .collapsible {
       font-size: 1.2em;
-      text-decoration: none;    /* 去掉下划线 */
-      color: #000;              /* 链接颜色 */
-      cursor: pointer;
+      text-decoration: none;    
+      color: #000;              
+      cursor: pointer;           
       transition: color 0.3s;
     }
-    .links a:hover {
-      color: #bebada;           /* 悬停颜色 */
+    .links a:hover, .links .collapsible:hover {
+      color: #bebada;           
     }
+
+    /* About Me 上划线样式 */
+    .collapsible {
+      border-top: 2px solid #000;
+      padding-top: 5px;
+    }
+
     .content {
-      display: none;             /* 默认隐藏 */
+      display: none;             
       max-width: 600px;
-      margin: 0 auto;
+      margin: 10px auto 40px;    /* 顶部和底部留白 */
       text-align: left;
-      background-color: #fbb4ae;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       line-height: 1.5em;
     }
 
     .content a {
-      color: #80b1d3;            /* 超链接颜色 */
+      color: #2a48ec;            
       text-decoration: underline;
     }
 
     .content a:hover {
-      color: #bebada;
+      color: #1a30a0;
     }
   </style>
 </head>
@@ -61,14 +65,14 @@
   <p>This is my first page on GitHub Pages.</p>
 
   <div class="links">
-    <a href="mine.html"> Game🎮 </a>
-    <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA">My Papers</a>
-    <span class="collapsible">About Me👩‍💻</span>
+    <a href="mine.html">Game 🎮</a>
+    <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA" target="_blank">My Papers</a>
+    <span class="collapsible">About Me 👩‍💻</span>
   </div>
+
   <div class="content">
-    <h2>About Me</h2>
-    <p>Hi, here is Shulan. I am a PhD student at Xiamen University. My interests are galaxy formation and evolution. My publications are <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA" target="_blank"> here</a></p>.
-    <p>Email: yansl[at]xmu.edu.cn🚀</p>
+    <p>Hi, here is Shulan. I am a PhD student at Xiamen University. My interests are galaxy formation and evolution. My publications are <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA" target="_blank">here</a>.</p>
+    <p>Email: yansl[at]xmu.edu.cn 🚀</p>
   </div>
 
   <script>
@@ -76,10 +80,8 @@
     const content = document.querySelector('.content');
 
     collapsible.addEventListener('click', () => {
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
       if(content.style.display === 'block') {
-        content.style.display = 'none';
-      } else {
-        content.style.display = 'block';
         content.scrollIntoView({behavior: "smooth"});
       }
     });
