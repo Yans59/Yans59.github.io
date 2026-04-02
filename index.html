@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;       /* 整体文字居中 */
+      text-align: center;       /* 整体居中 */
       margin-top: 100px;        /* 页面顶部留白 */
       background-color: #f0f0f0;
     }
@@ -18,27 +18,20 @@
       font-size: 1.2em;
       margin-bottom: 40px;
     }
-    .buttons {
+    .links {
       display: flex;
-      justify-content: center;  /* 水平居中按钮 */
-      gap: 20px;                /* 按钮间距 */
-      flex-wrap: wrap;          /* 窗口小了自动换行 */
+      justify-content: center;  /* 水平居中 */
+      gap: 20px;                /* 链接间距 */
+      flex-wrap: wrap;          /* 小屏幕自动换行 */
     }
-    button {
-      padding: 15px 25px;
-      font-size: 1em;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
-      color: white;
-      transition: background-color 0.3s;
+    .links a {
+      font-size: 1.2em;
+      text-decoration: none;    /* 去掉下划线 */
+      color: #000;              /* 链接颜色 */
+      transition: color 0.3s;
     }
-    button:hover {
-      background-color: #45a049;
-    }
-    a {
-      text-decoration: none;  /* 去掉链接下划线 */
+    .links a:hover {
+      color: #ffffbf;           /* 悬停颜色 */
     }
   </style>
 </head>
