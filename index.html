@@ -31,7 +31,7 @@
       transition: color 0.3s;
     }
     .links a:hover {
-      color: #ffffbf;           /* 悬停颜色 */
+      color: #bebada;           /* 悬停颜色 */
     }
   </style>
 </head>
@@ -40,8 +40,28 @@
   <p>This is my first page on GitHub Pages.</p>
 
   <div class="links">
-    <a href="mine.html"> Game 🎮 </a>
+    <a href="mine.html"> Game🎮 </a>
     <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA">My Papers</a>
+    <span class="collapsible">About Me👩‍💻</span>
   </div>
+  <div class="content">
+    <h2>About Me</h2>
+    <p>Hi, here is Shulan. I am a PhD student at Xiamen University. My interests are galaxy formation and evolution. My publications are <a href="https://ui.adsabs.harvard.edu/user/libraries/-2Ha8WEIRyel8gvgfELjaA" target="_blank"> here</a></p>.
+    <p>Email: yansl[at]xmu.edu.cn🚀</p>
+  </div>
+
+  <script>
+    const collapsible = document.querySelector('.collapsible');
+    const content = document.querySelector('.content');
+
+    collapsible.addEventListener('click', () => {
+      if(content.style.display === 'block') {
+        content.style.display = 'none';
+      } else {
+        content.style.display = 'block';
+        content.scrollIntoView({behavior: "smooth"});
+      }
+    });
+  </script>
 </body>
 </html>
