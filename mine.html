@@ -866,13 +866,13 @@
           }
 
           // Clicking on a cell
-          let clickTimer = null;
+          // Clicking on a cell
+let clickTimer = null;
 
 $('html').on('click', '.cell', function (e) {
   e.preventDefault();
   const $cell = $(this);
 
-  // 双击检测（延迟判断）
   if (clickTimer) {
     clearTimeout(clickTimer);
     clickTimer = null;
@@ -882,15 +882,21 @@ $('html').on('click', '.cell', function (e) {
       zeroClick($cell);
     }
     cellClick($cell, 'reveal');
+
   } else {
     clickTimer = setTimeout(() => {
       clickTimer = null;
 
-      // 👉 单击：标记
-      if (!$cell.is('.revealed')) {
+      // 👉 单击逻辑
+      if ($cell.is('.revealed')) {
+        // 已打开数字 → 清周围
+        cellClick($cell, 'clear');
+      } else {
+        // 未打开 → 插旗
         cellClick($cell, 'flag');
       }
-    }, 100); // 双击判定时间（200ms 可调）
+
+    }, 250);
   }
 });
 
