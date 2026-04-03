@@ -394,12 +394,13 @@
         <div class="legend">
           <p>
             <strong>插旗:</strong>
-            <code
-              ><span class="key">alt</span>+<span class="click"
-                >click</span
-              ></code
-            >
+            <code><span class="key">click</span></code>
           </p>
+	        <p>
+            <strong>掀开:</strong>
+            <code><span class="key">click</span>+<span>click</span></code>
+          </p>
+
         </div>
       </div>
     </header>
@@ -865,30 +866,33 @@
           }
 
           // Clicking on a cell
-          $('html').on('click', '.cell', function (e) {
-            e.preventDefault();
-            var action = 'reveal';
-            var $cell = $(this);
+          let clickTimer = null;
 
-            if (e.altKey || e.which === 3) {
-              action = 'flag';
-            } else if (
-              $cell.is('.revealed') ||
-              (e.which === 1) & (e.which === 3)
-            ) {
-              action = 'clear';
-            }
+$('html').on('click', '.cell', function (e) {
+  e.preventDefault();
+  const $cell = $(this);
 
-            if ($cell.is('.flagged') && !e.altKey) {
-              return;
-            }
+  // 双击检测（延迟判断）
+  if (clickTimer) {
+    clearTimeout(clickTimer);
+    clickTimer = null;
 
-            if ($cell.is('.zero')) {
-              zeroClick($cell);
-            }
+    // 👉 双击：打开
+    if ($cell.is('.zero')) {
+      zeroClick($cell);
+    }
+    cellClick($cell, 'reveal');
+  } else {
+    clickTimer = setTimeout(() => {
+      clickTimer = null;
 
-            cellClick($cell, action);
-          });
+      // 👉 单击：标记
+      if (!$cell.is('.revealed')) {
+        cellClick($cell, 'flag');
+      }
+    }, 100); // 双击判定时间（200ms 可调）
+  }
+});
 
           // Mouse down on a cell
           $('html')
