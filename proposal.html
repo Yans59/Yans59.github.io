@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposals</title>
+
+  <style>
+    body {
+      font-family: "DengXian", "Microsoft YaHei", Arial, sans-serif;
+      max-width: 800px;
+      margin: 80px auto;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .home-link {
+      font-weight: bold;
+      position: absolute;
+      top: 40px;
+      right: 480px;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    /* 👉 新增：隐藏内容 */
+    .content {
+      display: none;
+      margin-top: 10px;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 2px solid #ccc;
+      font-size: 17px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <p><a href="index.html" class="home-link">Back to Home</a></p>
+
+  <h1>Proposals</h1>
+
+  <p class="intro">
+    Below is a list of my approved proposals.<br>
+    You can click the title to see more details.
+  </p>
+
+
+  <h2>2026</h2>
+
+  <ul>
+    <li>
+      <!-- 👉 点击标题 -->
+      <a onclick="toggleContent(this)">
+        Unveiling the Impact of Red Spiral in Galaxy Merger: Tracing Merger Stage and Star Formation
+      </a>
+
+      <!-- 👉 展开内容 -->
+      <div class="content">
+        <strong>Telescope:</strong> P200<br>
+        <strong>Observing Time:</strong> 2 nights<br>
+        <strong>Abstract:</strong><br>
+        We propose to observe the Hβ, OIII, and Hα emissions from an interacting system composed by a red spiral, a green valley galaxy,
+and a blue dwarf, using the Palomar Cosmic Web Imager (PCWI). Red spirals exhibit distinct properties compared to blue spirals,
+including massive halos and unique star formation histories. While previous studies have primarily focused on isolated red spirals, the
+role of red spirals in interacting systems remains poorly understood. Is the hot halo of a red spiral as efficient as that of an elliptical
+galaxy in quenching star formation in its companion ? Is the companion galaxy evolving into a new red spiral during current interacting ?
+An IFU observation can help us investigate the impact of red spirals in interacting systems. This study will also advance our
+understanding of how red spirals influence their environments and contribute to galaxy evolution.
+      </div>
+    </li>
+  </ul>
+<ul>
+    <li>
+      <!-- 👉 点击标题 -->
+      <a onclick="toggleContent(this)">
+        FAST HI Deep Mapping of Dwarf Galaxies with UV Absorbers
+      </a>
+
+      <!-- 👉 展开内容 -->
+      <div class="content">
+        <strong>Telescope:</strong> FAST<br>
+        <strong>Observing Time:</strong> 12 hours<br>
+        <strong>Abstract:</strong><br>
+        Building a complete picture of baryon cycle in dwarf galaxies is essential for
+understanding the evolution of the first galaxies in the universe. Dwarf galaxies lost
+most of baryons from the stellar disk. Previous UV observations have revealed that
+most baryons are expelled to larger radii even beyond virial radius through feedback.
+In addition to the possible outflow driven by feedback in Sextans A, NGC 4214
+exhibits an inflow of MgII-enriched gas with a velocity of 27 km/s. However, previous
+observations via VLA or SKA-KAT7 failed to detect either outflow or inflow of HI gas,
+likely due to the limited sensitivity. In addition to the distribution of cold gas, it
+remains uncertain how much cold gas is bound in dwarf galaxies. We propose to
+observe diffuse HI gas of two typical dwarf galaxies to investigate cold gas component
+of dwarf galaxies. The high sensitivity of FAST enables us to detect HI gas with column
+density down to 10^17 cm^-2. This observation can help us understand: (1). What is
+the spatial distribution and dynamic of HI gas in dwarf galaxies? (2). How much cold
+gas can dwarf galaxies bound?
+      </div>
+    </li>
+  </ul>
+
+
+  <!-- 👉 JavaScript 控制展开 -->
+  <script>
+    function toggleContent(element) {
+      const content = element.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
