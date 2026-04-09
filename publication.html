@@ -45,14 +45,7 @@
       font-size: 18px;
       margin-bottom: 12px;
     }
-
-    backhome {
-      text-decoration: none;
-      color: black;
-    }
-    backhome:hover {
-      text-decoration: underline;
-    }
+    
     a {
       text-decoration: none;
       color: #2171b5;
@@ -61,7 +54,15 @@
     a:hover {
       text-decoration: underline;
     }
+.home-link,
+.home-link:visited {
+  color: black;
+}
 
+.home-link:hover {
+  color: black;
+  text-decoration: underline;
+}
     strong {
       font-weight: bold;
     }
@@ -73,7 +74,7 @@
 </head>
 
 <body>
-  <p><backhome href="index.html" class="home-link">Back to Home</backhome></p>
+  <p><a href="index.html" class="home-link">Back to Home</a></p>
   <h1>Publications</h1>
 
   <p class="intro">
