@@ -1,106 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Publications</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications · Shulan Yan</title>
+  <meta name="description" content="Publications by Shulan Yan - PhD Student, Department of Astronomy, Xiamen University" />
   <style>
-    body {
-      font-family: "DengXian", "Microsoft YaHei", Arial, sans-serif;
-      max-width: 800px;
-      margin: 80px auto;
-      line-height: 1.6;
-      font-size: 18px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0f1a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #1e293b;
+      --link: #2171b5;
     }
-    .home-link {
-  font-weight: bold;
-  position: absolute;
-  top: 40px;
-  right: 480px;
-  font-size: 18px;
-}
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--fg); background: var(--bg); line-height: 1.6; }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 4px; }
+    a:hover { opacity: 0.8; }
 
-    .intro {
-      font-size: 22px;
-      margin-bottom: 30px;
-    }
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 16px; }
+    .nav-brand { font-size: 1.125rem; font-weight: 600; color: var(--fg); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 1rem; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-links svg { width: 16px; height: 16px; }
 
-    h2 {
-      font-size: 25px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
+    /* Page Title */
+    .page-title { border-bottom: 1px solid var(--border); padding: 48px 16px; text-align: center; }
+    .page-title h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.025em; color: var(--fg); }
 
-    ul {
-      padding-left: 20px;
-    }
+    /* Keywords */
+    .keywords-section { max-width: 896px; margin: 0 auto; padding: 48px 16px; }
+    .keywords-cloud { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 16px; }
+    .keywords-cloud span { font-weight: 600; opacity: 0.8; transition: opacity 0.2s; cursor: default; }
+    .keywords-cloud span:hover { opacity: 1; }
+    .keywords-note { margin-top: 16px; text-align: center; font-size: 0.875rem; color: var(--muted); font-style: italic; }
+    .keywords-note strong { color: var(--fg); }
 
-    li {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-    
-    a {
-      text-decoration: none;
-      color: #2171b5;
-    }
+    /* Publications */
+    .pub-section { max-width: 896px; margin: 0 auto; padding: 0 16px 64px; }
+    .pub-year { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .pub-list { list-style: decimal; padding-left: 32px; }
+    .pub-list li { color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    .pub-list li strong { color: var(--fg); }
+    .pub-list li a { color: var(--link); }
+    .pub-list li em { font-style: italic; }
 
-    a:hover {
-      text-decoration: underline;
-    }
-.home-link,
-.home-link:visited {
-  color: black;
-}
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 32px 16px; text-align: center; font-size: 0.875rem; color: var(--muted); }
 
-.home-link:hover {
-  color: black;
-  text-decoration: underline;
-}
-    strong {
-      font-weight: bold;
+    @media (min-width: 768px) {
+      .page-title h1 { font-size: 3rem; }
     }
-
-    em {
-      font-style: italic;
+    @media (max-width: 600px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 0.875rem; }
     }
   </style>
 </head>
-
 <body>
-  <p><a href="index.html" class="home-link">Back to Home</a></p>
-  <h1>Publications</h1>
+<!-- Navigation -->
+  <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Shulan Yan</a>
+      <div class="nav-links">
+        <a href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Back to Home
+        </a>
+        <a href="index.html#about">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+          About Me
+        </a>
+        <a href="publication.html">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Publication
+        </a>
+        <a href="proposal.html">
+  <svg viewBox="0 0 24 24">
+  <!-- telescope tube -->
+  <path d="M4 14l10-6 3 4-10 6-3-4z"/>
+  
+  <!-- eyepiece -->
+  <circle cx="4" cy="14" r="1.2"/>
+  
+  <!-- tripod legs -->
+  <path d="M10 18l-3 4"/>
+  <path d="M12 17l0 5"/>
+  <path d="M14 16l3 6"/>
+  
+  <!-- mount -->
+  <path d="M8 18l8-5"/>
+</svg>
+  Proposal
+</a>
+        <a href="mine.html">
+          <svg viewBox="0 0 24 24"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.544-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+          Game
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation -->
+  <nav>
+   
 
-  <p class="intro">
-    Below is a list of my refereed publications.
-  </p>
+  <!-- Page Title -->
+  <section class="page-title">
+    <h1>Publications</h1>
+  </section>
 
-  <h2>2026</h2>
+  <!-- Keywords Cloud -->
+  <section class="keywords-section">
+    <p style="color:var(--muted);">
+      For more details, please check out my
+      <a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3Aastronomy&q=%3Dauthor%3A(%22Yan%2C%20S%20L%22%20OR%20%22Yan%2C%20Shulan%22)%20AND%20pubdate%3A%5B2026-01%20TO%20*%5D&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer">ADS library</a>.
+    </p>
 
-  <ul>
-    <li>
-      &#8220;<a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260322693Y/abstract" target="_blank">
-      HI Gas and Star Formation in Major Galaxy Pairs from the FAST All-Sky HI Survey (FASHI)</a>&#8221;,
-      <strong>Shulan Yan</strong>, Qingzheng Yu, Taotao Fang, Chuan He, Andrew Ma, Junfeng Wang, Kevin.C Xu, Ming Zhu, Weishan Zhu,
-      2026, <em>ArXiv</em>: 2603.22693
-    </li>
-  </ul>
+    <div class="keywords-cloud">
+      <span style="font-size:3rem; color:#1e293b;">FAST</span>
+      <span style="font-size:3rem; color:#1e293b;">HI</span>
+      <span style="font-size:2.25rem; color:#4338ca;">Baryon Cycle</span>
+      <span style="font-size:1.5rem; color:#1d4ed8;">galaxy</span>
+      <span style="font-size:1.5rem; color:#7e22ce;">group</span>
+      <span style="font-size:1.5rem; color:#4f46e5;">pair</span>
+      <span style="font-size:1.875rem; color:#0f766e;">gas</span>
+      <span style="font-size:1.5rem; color:#6d28d9;">star formation</span>
+      <span style="font-size:1.5rem; color:#0369a1;">interaction</span>
+      <span style="font-size:1.5rem; color:#2563eb;">radio telescope</span>
+      <span style="font-size:1.5rem; color:#9333ea;">evolution</span>
+      <span style="font-size:1.5rem; color:#0d9488;">observation</span>
+    </div>
 
-  <ul>
-    <li>
-      &#8220;<a href="https://ui.adsabs.harvard.edu/abs/2026ApJ...997..254Y/abstract" target="_blank">
-      H I Content of Group Galaxies from the FAST All Sky H I Survey</a>&#8221;,
-      <strong>Shulan Yan</strong>, Andrew Ma, Qingzheng Yu,
-      Taotao Fang, Chuan He, Ming Zhu,
-      2026, <em>The Astrophysical Journal</em>, 997, 254.
-    </li>
-  </ul>
+    <p class="keywords-note">
+      Keywords from my research: <strong>FAST</strong>, <strong>HI</strong>, <strong>gas</strong>, <strong>galaxy</strong>, and <strong>star formation</strong>.
+    </p>
+  </section>
+
+  <!-- Publication List -->
+  <section class="pub-section">
+    <h2 class="pub-year">2026</h2>
+    <ol class="pub-list">
+      <li>
+        <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260322693Y/abstract" target="_blank" rel="noopener noreferrer">"H I Gas and Star Formation in Major Galaxy Pairs from the FAST All-Sky HI Survey (FASHI)"</a>,
+        <strong>Shulan Yan</strong>, Qingzheng Yu, Taotao Fang, Chuan He, Andrew Ma, Junfeng Wang, Kevin.C Xu, Ming Zhu, Weishan Zhu,
+        <em>ArXiv</em>: 2603.22693.
+      </li> 
+<li>
+        <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ...997..254Y/abstract" target="_blank" rel="noopener noreferrer">"H I Content of Group Galaxies from the FAST All Sky H I Survey"</a>,
+        <strong>Shulan Yan</strong>, Andrew Ma, Qingzheng Yu, Taotao Fang, Chuan He, Ming Zhu,
+        <em>The Astrophysical Journal, 997, 254</em>.
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Shulan Yan &middot; Xiamen University</p>
+  </footer>
 
 </body>
 </html>
