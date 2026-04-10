@@ -29,10 +29,11 @@
     .keywords-section p { color: #6b7280; }
     .keywords-section a.ads-link { color: #2171b5; text-decoration: underline; text-underline-offset: 4px; }
     .keywords-section a.ads-link:hover { opacity: 0.8; }
-    .keyword-cloud {margin-top: 32px;
+    .keyword-cloud {
+  margin-top: 32px;
   position: relative;
-  width: 420px;
-  height: 420px;
+  width: 520px;
+  height: 520px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -50,11 +51,8 @@
 }
 
 .keyword.center {
-  left: 210px;
-  top: 210px;
-  font-size: 2rem;
-  opacity: 1;
-  color: #1a1a2e;
+  left: 260px;
+  top: 260px;
 }
     .keywords-caption { margin-top: 16px; text-align: center; font-size: 0.875rem; color: #6b7280; font-style: italic; }
     .keywords-caption strong { color: #1a1a2e; }
@@ -188,16 +186,15 @@
   const container = document.getElementById("keywordCloud");
   const items = Array.from(container.querySelectorAll(".keyword:not(.center)"));
 
-  const centerX = 210;
-  const centerY = 210;
+  const centerX = 260;
+  const centerY = 260;
 
-  const shortRadius = 120;
-  const longRadius = 170;
+  const shortRadius = 150;  // ↑ 从120提升
+  const longRadius = 210;   // ↑ 从170提升
 
   const shortItems = [];
   const longItems = [];
 
-  // 按长度分层（防重叠关键）
   items.forEach(el => {
     const len = el.innerText.length;
     if (len <= 6) shortItems.push(el);
@@ -205,8 +202,10 @@
   });
 
   function place(list, radius) {
+    const n = list.length;
+
     list.forEach((el, i) => {
-      const angle = (i / list.length) * 2 * Math.PI;
+      const angle = (i / n) * 2 * Math.PI;
 
       const x = centerX + radius * Math.cos(angle);
       const y = centerY + radius * Math.sin(angle);
