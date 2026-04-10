@@ -29,9 +29,25 @@
     .keywords-section p { color: #6b7280; }
     .keywords-section a.ads-link { color: #2171b5; text-decoration: underline; text-underline-offset: 4px; }
     .keywords-section a.ads-link:hover { opacity: 0.8; }
-    .keyword-cloud { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 16px; }
-    .keyword { font-weight: 600; opacity: 0.8; transition: opacity 0.2s; }
-    .keyword:hover { opacity: 1; }
+    .keyword-cloud {margin-top: 32px;
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+    .keyword {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.keyword:hover {
+  opacity: 1;
+}
     .keywords-caption { margin-top: 16px; text-align: center; font-size: 0.875rem; color: #6b7280; font-style: italic; }
     .keywords-caption strong { color: #1a1a2e; }
 
@@ -49,6 +65,24 @@
     footer { border-top: 1px solid #e5e5e5; padding: 32px 0; text-align: center; font-size: 0.875rem; color: #6b7280; }
   </style>
 </head>
+<script>
+  const container = document.getElementById("keywordCloud");
+  const items = container.querySelectorAll(".keyword");
+
+  const radius = 160; // 圆半径
+  const centerX = 210;
+  const centerY = 210;
+
+  items.forEach((el, i) => {
+    const angle = (i / items.length) * (2 * Math.PI);
+
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+  });
+</script>
 <body>
 
   <!-- Navigation -->
@@ -108,13 +142,13 @@
   </section>
 
   <!-- Keywords Cloud -->
-  <section class="keywords-section">
+  <section class="keywords-section" >
     <div class="container">
       <p>For more details, please check out my
         <a class="ads-link" href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3Aastronomy&q=%3Dauthor%3A(%22Yan%2C%20S%20L%22%20OR%20%22Yan%2C%20Shulan%22)%20AND%20pubdate%3A%5B2026-01%20TO%20*%5D&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer">ADS library</a>.
       </p>
 
-      <div class="keyword-cloud">
+      <div class="keyword-cloud" id="keywordCloud">
         <span class="keyword" style="font-size:3rem; color:#1e3a5f;">FAST</span>
         <span class="keyword" style="font-size:3rem; color:#1e3a5f;">HI</span>
         <span class="keyword" style="font-size:2.25rem; color:#3730a3;">Baryon Cycle</span>
