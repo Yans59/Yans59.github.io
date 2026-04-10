@@ -177,38 +177,21 @@
   </footer>
 <script>
   const container = document.getElementById("keywordCloud");
-  const items = Array.from(container.querySelectorAll(".keyword"));
+  const items = container.querySelectorAll(".keyword");
 
+  const radius = 160; // 圆半径
   const centerX = 210;
   const centerY = 210;
 
-  const shortRadius = 120;
-  const longRadius = 170;
+  items.forEach((el, i) => {
+    const angle = (i / items.length) * (2 * Math.PI);
 
-  const shortItems = [];
-  const longItems = [];
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
 
-  // 按长度分类（简单但有效）
-  items.forEach(el => {
-    const len = el.innerText.length;
-    if (len <= 6) shortItems.push(el);
-    else longItems.push(el);
+    el.style.left = x + "px";
+    el.style.top = y + "px";
   });
-
-  function placeCircle(list, radius) {
-    list.forEach((el, i) => {
-      const angle = (i / list.length) * 2 * Math.PI;
-
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
-
-      el.style.left = x + "px";
-      el.style.top = y + "px";
-    });
-  }
-
-  placeCircle(shortItems, shortRadius);
-  placeCircle(longItems, longRadius);
 </script>
 </body>
 </html>
