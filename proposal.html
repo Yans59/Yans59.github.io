@@ -1,106 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Proposals</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposals - Shulan Yan</title>
+  <meta name="description" content="Observational proposals by Shulan Yan, PhD student at Xiamen University Department of Astronomy." />
   <style>
-    body {
-      font-family: "DengXian", "Microsoft YaHei", Arial, sans-serif;
-      max-width: 800px;
-      margin: 80px auto;
-      line-height: 1.6;
-      font-size: 18px;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a1a2e; background: #fafafa; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
 
-    .home-link {
-      font-weight: bold;
-      position: absolute;
-      top: 40px;
-      right: 480px;
-      font-size: 18px;
-    }
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e5e5; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 16px; }
+    .nav-brand { font-size: 1.125rem; font-weight: 600; color: #1a1a2e; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link { display: flex; align-items: center; gap: 6px; font-size: 1rem; color: #6b7280; transition: color 0.2s; }
+    .nav-link:hover { color: #1a1a2e; }
+    .nav-link svg { width: 16px; height: 16px; }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+    /* Sections */
+    .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+    .page-title { border-bottom: 1px solid #e5e5e5; padding: 48px 0; text-align: center; }
+    .page-title h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; }
 
-    .intro {
-      font-size: 22px;
-      margin-bottom: 30px;
-    }
+    .intro { padding-top: 48px; color: #6b7280; margin-bottom: 32px; font-size:1rem}
 
-    h2 {
-      font-size: 25px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
+    /* Proposals */
+    .pub-section { padding-bottom: 64px; }
+    .pub-year { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .pub-list { list-style: decimal; padding-left: 32px; }
+    .pub-list li { color: #6b7280; line-height: 1.8; margin-bottom: 16px; }
+    .pub-list li strong { color: #1a1a2e; }
 
-    ul {
-      padding-left: 20px;
+    .proposal-title {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-weight: 700; color: #1a1a2e; cursor: pointer;
+      background: none; border: none; font-size: inherit;
+      font-family: inherit; text-align: left; padding: 0;
+      transition: color 0.2s; font-size:1.3rem
     }
-
-    li {
-      font-size: 18px;
-      margin-bottom: 12px;
+    .proposal-title:hover { color: #2171b5; }
+    .proposal-title .chevron {
+      display: inline-block; width: 16px; height: 16px; transition: transform 0.2s;
     }
+    .proposal-title.open .chevron { transform: rotate(180deg); }
 
-    a {
-      text-decoration: none;
-      color: black;
-      cursor: pointer;
+    .proposal-meta { font-size: 1rem; }
+    .proposal-meta strong { color: #1a1a2e; }
+    .status-approved { color: #16a34a; font-weight: 500; }
+
+    .proposal-abstract {
+      display: none; margin-top: 8px; padding: 16px;
+      border: 1px solid #e5e5e5; border-radius: 6px;
+      background: #f5f5f5; font-size: 1rem;
+      color: #6b7280; line-height: 1.7;
     }
+    .proposal-abstract.open { display: block; }
+    .proposal-abstract strong { color: #1a1a2e; }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    strong {
-      font-weight: bold;
-    }
-
-    /* 👉 新增：隐藏内容 */
-    .content {
-      display: none;
-      margin-top: 10px;
-      margin-left: 10px;
-      padding-left: 10px;
-      border-left: 2px solid #ccc;
-      font-size: 17px;
-    }
-
+    /* Footer */
+    footer { border-top: 1px solid #e5e5e5; padding: 32px 0; text-align: center; font-size: 0.875rem; color: #6b7280; }
   </style>
 </head>
-
 <body>
-  <p><a href="index.html" class="home-link">Back to Home</a></p>
 
-  <h1>Proposals</h1>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Shulan Yan</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Back to Home
+        </a>
+        <a href="index.html#about" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+          About
+        </a>
+        <a href="publication.html" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Publication
+        </a>
+        <a href="proposal.html" class="nav-link" style="color:#1a1a2e;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14l10-6 3 4-10 6-3-4z"/>
+            <circle cx="4" cy="14" r="1.2"/>
+            <path d="M10 18l-3 4"/>
+            <path d="M12 17l0 5"/>
+            <path d="M14 16l3 6"/>
+            <path d="M8 18l8-5"/>
+          </svg>
+          Proposal
+        </a>
+        <a href="mine.html" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+          Game
+        </a>
+      </div>
+    </div>
+  </nav>
 
-  <p class="intro">
-    Below is a list of my approved proposals.<br>
-    You can click the title to see more details.
-  </p>
+  <!-- Page Title -->
+  <section class="page-title">
+    <h1>Proposals</h1>
+  </section>
 
+  <!-- Proposal List -->
+  <section class="pub-section">
+    <div class="container">
+      <p class="intro">Below is a list of my approved proposals. Click on a title to view the abstract.</p>
 
-  <h2>2025</h2>
-
-<ul>
-    <li>
-      <!-- 👉 点击标题 -->
-      <a onclick="toggleContent(this)">
-        FAST HI Deep Mapping of Dwarf Galaxies with UV Absorbers
-      </a>
-
-      <!-- 👉 展开内容 -->
-      <div class="content">
-        <strong>Telescope:</strong> FAST<br>
-        <strong>Observing Time:</strong> 12 hours<br>
-        <strong>Abstract:</strong><br>
-        Building a complete picture of baryon cycle in dwarf galaxies is essential for
+      <h2 class="pub-year">2026</h2>
+      <ol class="pub-list">
+        <li>
+          <button class="proposal-title" onclick="toggleAbstract(this)">
+            FAST HI Deep Mapping of Dwarf Galaxies with UV Absorbers
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <br />
+          <span class="proposal-meta">
+            Role: <strong>PI</strong> · Telescope: FAST · Semester: 2025
+          </span>
+          <div class="proposal-abstract">
+            <strong>Abstract:</strong> Building a complete picture of baryon cycle in dwarf galaxies is essential for
 understanding the evolution of the first galaxies in the universe. Dwarf galaxies lost
 most of baryons from the stellar disk. Previous UV observations have revealed that
 most baryons are expelled to larger radii even beyond virial radius through feedback.
@@ -114,43 +137,43 @@ of dwarf galaxies. The high sensitivity of FAST enables us to detect HI gas with
 density down to 10^17 cm^-2. This observation can help us understand: (1). What is
 the spatial distribution and dynamic of HI gas in dwarf galaxies? (2). How much cold
 gas can dwarf galaxies bound?
-      </div>
-    </li>
-  </ul>
-<ul>
-    <li>
-      <!-- 👉 点击标题 -->
-      <a onclick="toggleContent(this)">
-        Unveiling the Impact of Red Spiral in Galaxy Merger: Tracing Merger Stage and Star Formation
-      </a>
-
-      <!-- 👉 展开内容 -->
-      <div class="content">
-        <strong>Telescope:</strong> P200<br>
-        <strong>Observing Time:</strong> 2 nights<br>
-        <strong>Abstract:</strong><br>
-        We propose to observe the Hβ, OIII, and Hα emissions from an interacting system composed by a red spiral, a green valley galaxy,
+          </div>
+        </li>
+ <li>
+          <button class="proposal-title" onclick="toggleAbstract(this)">
+            Unveiling the Impact of Red Spiral in Galaxy Merger: Tracing Merger Stage and Star Formation
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <br />
+          <span class="proposal-meta">
+            Role: <strong>PI</strong> · Telescope: Palomar-200inch · Semester: 2025
+          </span>
+          <div class="proposal-abstract">
+            <strong>Abstract:</strong> We propose to observe the Hβ, OIII, and Hα emissions from an interacting system composed by a red spiral, a green valley galaxy,
 and a blue dwarf, using the Palomar Cosmic Web Imager (PCWI). Red spirals exhibit distinct properties compared to blue spirals,
 including massive halos and unique star formation histories. While previous studies have primarily focused on isolated red spirals, the
 role of red spirals in interacting systems remains poorly understood. Is the hot halo of a red spiral as efficient as that of an elliptical
 galaxy in quenching star formation in its companion ? Is the companion galaxy evolving into a new red spiral during current interacting ?
 An IFU observation can help us investigate the impact of red spirals in interacting systems. This study will also advance our
 understanding of how red spirals influence their environments and contribute to galaxy evolution.
-      </div>
-    </li>
-  </ul>
+          </div>
+        </li>
 
-  <!-- 👉 JavaScript 控制展开 -->
+      </ol>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Shulan Yan &middot; Xiamen University</p>
+  </footer>
+
   <script>
-    function toggleContent(element) {
-      const content = element.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+    function toggleAbstract(btn) {
+      btn.classList.toggle("open");
+      const abstract = btn.parentElement.querySelector(".proposal-abstract");
+      abstract.classList.toggle("open");
     }
   </script>
-
 </body>
 </html>
