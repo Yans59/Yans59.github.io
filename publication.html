@@ -29,31 +29,27 @@
     .keywords-section p { color: #6b7280; }
     .keywords-section a.ads-link { color: #2171b5; text-decoration: underline; text-underline-offset: 4px; }
     .keywords-section a.ads-link:hover { opacity: 0.8; }
+
     .keyword-cloud {
-  margin-top: 32px;
-  position: relative;
-  width: 520px;
-  height: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
+      margin-top: 32px;
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .keyword {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-weight: 600;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
+      position: absolute;
+      transform: translate(-50%, -50%);
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .keyword:hover { opacity: 1; }
 
-.keyword:hover {
-  opacity: 1;
-}
-
-.keyword.center {
-  left: 260px;
-  top: 260px;
-}
     .keywords-caption { margin-top: 16px; text-align: center; font-size: 0.875rem; color: #6b7280; font-style: italic; }
     .keywords-caption strong { color: #1a1a2e; }
 
@@ -71,7 +67,6 @@
     footer { border-top: 1px solid #e5e5e5; padding: 32px 0; text-align: center; font-size: 0.875rem; color: #6b7280; }
   </style>
 </head>
-
 <body>
 
   <!-- Navigation -->
@@ -92,31 +87,16 @@
           Publication
         </a>
         <a href="proposal.html" class="nav-link">
-  <svg viewBox="0 0 24 24"
-       width="16"
-       height="16"
-       fill="none"
-       stroke="currentColor"
-       stroke-width="2"
-       stroke-linecap="round"
-       stroke-linejoin="round">
-
-    <!-- telescope tube -->
-    <path d="M4 14l10-6 3 4-10 6-3-4z"/>
-
-    <!-- eyepiece -->
-    <circle cx="4" cy="14" r="1.2"/>
-
-    <!-- tripod legs -->
-    <path d="M10 18l-3 4"/>
-    <path d="M12 17l0 5"/>
-    <path d="M14 16l3 6"/>
-
-    <!-- mount -->
-    <path d="M8 18l8-5"/>
-  </svg>
-  Proposal
-</a>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14l10-6 3 4-10 6-3-4z"/>
+            <circle cx="4" cy="14" r="1.2"/>
+            <path d="M10 18l-3 4"/>
+            <path d="M12 17l0 5"/>
+            <path d="M14 16l3 6"/>
+            <path d="M8 18l8-5"/>
+          </svg>
+          Proposal
+        </a>
         <a href="mine.html" class="nav-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
           Game
@@ -131,27 +111,27 @@
   </section>
 
   <!-- Keywords Cloud -->
-  <section class="keywords-section" >
+  <section class="keywords-section">
     <div class="container">
-      <div class="keyword-cloud" id="keywordCloud">
-        <span class="keyword" style="font-size:3rem; color:#1e3a5f;">FAST</span>
-        <span class="keyword" style="font-size:3rem; color:#1e3a5f;">HI</span>
-        <span class="keyword" style="font-size:2.25rem; color:#3730a3;">Baryon Cycle</span>
-        <span class="keyword" style="font-size:1.5rem; color:#1e40af;">galaxy</span>
-        <span class="keyword" style="font-size:1.5rem; color:#6b21a8;">group</span>
-        <span class="keyword" style="font-size:1.5rem; color:#4338ca;">pair</span>
-        <span class="keyword" style="font-size:1.875rem; color:#115e59;">gas</span>
-        <span class="keyword" style="font-size:1.5rem; color:#5b21b6;">star formation</span>
-        <span class="keyword" style="font-size:1.5rem; color:#0369a1;">interaction</span>
-        <span class="keyword" style="font-size:1.5rem; color:#1d4ed8;">radio telescope</span>
-        <span class="keyword" style="font-size:1.5rem; color:#7e22ce;">evolution</span>
-        <span class="keyword" style="font-size:1.5rem; color:#0f766e;">observation</span>
-        <span class="keyword center">FAST / HI</span>
+      <p>Key words of my research: </p>
+
+      <div class="keyword-cloud">
+        <span class="keyword" style="font-size:56px; color:#1e3a5f; left:36%; top:38%;">FAST</span>
+        <span class="keyword" style="font-size:56px; color:#1e3a5f; left:60%; top:36%;">HI</span>
+        <span class="keyword" style="font-size:34px; color:#3730a3; left:42%; top:60%;">Baryon Cycle</span>
+        <span class="keyword" style="font-size:30px; color:#115e59; left:52%; top:18%;">gas</span>
+        <span class="keyword" style="font-size:22px; color:#1e40af; left:14%; top:28%;">galaxy</span>
+        <span class="keyword" style="font-size:20px; color:#6b21a8; left:86%; top:22%;">group</span>
+        <span class="keyword" style="font-size:20px; color:#4338ca; left:10%; top:54%;">pair</span>
+        <span class="keyword" style="font-size:20px; color:#5b21b6; left:82%; top:72%;">star formation</span>
+        <span class="keyword" style="font-size:19px; color:#0369a1; left:18%; top:76%;">interaction</span>
+        <span class="keyword" style="font-size:17px; color:#1d4ed8; left:78%; top:50%;">radio telescope</span>
+        <span class="keyword" style="font-size:19px; color:#7e22ce; left:88%; top:42%;">evolution</span>
+        <span class="keyword" style="font-size:17px; color:#0f766e; left:46%; top:84%;">observation</span>
       </div>
 
-      <p class="keywords-caption">
-        Keywords from my research: <strong>FAST</strong>, <strong>HI</strong>, <strong>gas</strong>, <strong>galaxy</strong>, and <strong>star formation</strong>.
-      </p>
+      <p>Below is a list of my refereed publications</p>
+
     </div>
   </section>
 
@@ -160,7 +140,7 @@
     <div class="container">
       <h2 class="pub-year">2026</h2>
       <ol class="pub-list">
-      <li>
+        <li>
         <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260322693Y/abstract" target="_blank" rel="noopener noreferrer">"H I Gas and Star Formation in Major Galaxy Pairs from the FAST All-Sky HI Survey (FASHI)"</a>,
         <strong>Shulan Yan</strong>, Qingzheng Yu, Taotao Fang, Chuan He, Andrew Ma, Junfeng Wang, Kevin.C Xu, Ming Zhu, Weishan Zhu,
         <em>ArXiv</em>: 2603.22693.
@@ -178,41 +158,6 @@
   <footer>
     <p>&copy; 2026 Shulan Yan &middot; Xiamen University</p>
   </footer>
-<script>
-  const container = document.getElementById("keywordCloud");
-  const items = Array.from(container.querySelectorAll(".keyword:not(.center)"));
 
-  const centerX = 260;
-  const centerY = 260;
-
-  const shortRadius = 150;  // ↑ 从120提升
-  const longRadius = 210;   // ↑ 从170提升
-
-  const shortItems = [];
-  const longItems = [];
-
-  items.forEach(el => {
-    const len = el.innerText.length;
-    if (len <= 6) shortItems.push(el);
-    else longItems.push(el);
-  });
-
-  function place(list, radius) {
-    const n = list.length;
-
-    list.forEach((el, i) => {
-      const angle = (i / n) * 2 * Math.PI;
-
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
-
-      el.style.left = x + "px";
-      el.style.top = y + "px";
-    });
-  }
-
-  place(shortItems, shortRadius);
-  place(longItems, longRadius);
-</script>
 </body>
 </html>
