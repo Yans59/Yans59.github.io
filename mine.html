@@ -875,36 +875,32 @@
 
           // Clicking on a cell
           // Clicking on a cell
-let clickTimer = null;
+let lastTap = 0;
 
 $('html').on('click', '.cell', function (e) {
-  e.preventDefault();
+  const now = Date.now();
   const $cell = $(this);
 
-  if (clickTimer) {
-    clearTimeout(clickTimer);
-    clickTimer = null;
-
-    // 👉 双击
+  if (now - lastTap < 250) {
+    // double tap
     if ($cell.is('.revealed')) {
       cellClick($cell, 'clear');
     } else {
       cellClick($cell, 'reveal');
     }
-
   } else {
-    clickTimer = setTimeout(() => {
-      clickTimer = null;
-
-      // 👉 单击
-      if ($cell.is('.revealed')) {
-        cellClick($cell, 'clear');
-      } else {
-        cellClick($cell, 'flag');
+    setTimeout(() => {
+      if (Date.now() - lastTap >= 250) {
+        if ($cell.is('.revealed')) {
+          cellClick($cell, 'clear');
+        } else {
+          cellClick($cell, 'flag');
+        }
       }
-
     }, 250);
   }
+
+  lastTap = now;
 });
 
           // Mouse down on a cell
