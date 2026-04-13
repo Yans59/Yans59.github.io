@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>扫雷(代码来自微信公众号:前端嘛)</title>
     <link
       href="https://fonts.googleapis.com/css?family=Space+Mono:400,700"
@@ -270,6 +271,9 @@
       #grid .cell.mousedown {
         border: none;
       }
+	  #grid .cell {
+  touch-action: manipulation;
+}
 
       #leaderboard {
         margin-top: 20px;
@@ -431,7 +435,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-      $(document).ready(function () {
+		
+      $(document).ready(function () {document.addEventListener('touchstart', function(e) {
+  if (e.target.closest('.cell')) {
+    e.preventDefault();
+  }
+}, { passive: false });
         var $body, $document, $board, $grid, timer, time, unstarted;
 
         function _init() {
