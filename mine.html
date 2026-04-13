@@ -885,22 +885,21 @@ $('html').on('click', '.cell', function (e) {
     clearTimeout(clickTimer);
     clickTimer = null;
 
-    // 👉 双击：打开
-   // 👉 双击：清周围（符合扫雷规则）
-if ($cell.is('.revealed')) {
-  cellClick($cell, 'clear');
-} else {
-  cellClick($cell, 'reveal');
-}else {
+    // 👉 双击
+    if ($cell.is('.revealed')) {
+      cellClick($cell, 'clear');
+    } else {
+      cellClick($cell, 'reveal');
+    }
+
+  } else {
     clickTimer = setTimeout(() => {
       clickTimer = null;
 
-      // 👉 单击逻辑
+      // 👉 单击
       if ($cell.is('.revealed')) {
-        // 已打开数字 → 清周围
         cellClick($cell, 'clear');
       } else {
-        // 未打开 → 插旗
         cellClick($cell, 'flag');
       }
 
