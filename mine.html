@@ -729,15 +729,23 @@
               }
               // If Revealing
             } else if (action === 'reveal') {
-              $cell.addClass('revealed');
+  if ($cell.is('.revealed') || $cell.is('.flagged')) return;
 
-              // If it's a mine you lose!
-              if ($cell.is('.mine')) {
-                lose();
-              }
+  $cell.addClass('revealed');
 
-              statusCheck();
-            } else if (action === 'clear') {
+  // If it's a mine you lose!
+  if ($cell.is('.mine')) {
+    lose();
+    return;
+  }
+
+  // ✅ 自动展开 zero 区域
+  if ($cell.is('.zero')) {
+    zeroClick($cell);
+  }
+
+  statusCheck();
+} else if (action === 'clear') {
               if (!$cell.is('.revealed') || $cell.is('.zero')) {
                 return;
               }
@@ -878,12 +886,12 @@ $('html').on('click', '.cell', function (e) {
     clickTimer = null;
 
     // 👉 双击：打开
-    if ($cell.is('.zero')) {
-      zeroClick($cell);
-    }
-    cellClick($cell, 'reveal');
-
-  } else {
+   // 👉 双击：清周围（符合扫雷规则）
+if ($cell.is('.revealed')) {
+  cellClick($cell, 'clear');
+} else {
+  cellClick($cell, 'reveal');
+}else {
     clickTimer = setTimeout(() => {
       clickTimer = null;
 
