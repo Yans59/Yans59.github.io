@@ -566,12 +566,29 @@
             level = $levelSelect.val();
             setBoard(level);
           });
+          function getSafeZone(index) {
+  var zone = [];
+  var row = Math.floor(index / columns);
+  var col = index % columns;
 
+  for (let dr = -1; dr <= 1; dr++) {
+    for (let dc = -1; dc <= 1; dc++) {
+      let r = row + dr;
+      let c = col + dc;
+
+      if (r >= 0 && r < rows && c >= 0 && c < columns) {
+        zone.push(r * columns + c);
+      }
+    }
+  }
+
+  return zone;
+}
           // Lay Mines
           function layMines(level, clickedCellIndex) {
             $rows = $('.row');
             var freeCells = $('.cell');
-            var takenCells = [clickedCellIndex];
+            var takenCells = getSafeZone(clickedCellIndex);
 
             // Lay Mines
             for (m = 0; m < mines; m++) {
